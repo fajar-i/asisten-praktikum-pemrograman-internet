@@ -1,24 +1,76 @@
+# ===================================================================
+# Laravel & Composer Dependencies
+#
+# PENTING: Folder /vendor sengaja TIDAK diabaikan.
+# Anda harus meng-commit folder ini karena Anda tidak bisa menjalankan
+# "composer install" di server shared hosting Anda.
+# ===================================================================
+# /vendor
+
+# ===================================================================
+# Node.js Dependencies
+#
+# Folder ini WAJIB diabaikan. Ukurannya sangat besar dan tidak
+# dibutuhkan di server. Jalankan "npm run build" di komputer lokal Anda.
+# ===================================================================
+/node_modules
+
+# ===================================================================
+# Aset Terkompilasi (CSS/JS)
+#
+# PENTING: Folder /public/build sengaja TIDAK diabaikan.
+# Anda harus meng-commit folder ini karena Anda tidak bisa menjalankan
+# "npm run build" di server. Ini adalah hasil "matang" dari aset Anda.
+# ===================================================================
+# /public/build
+
+# ===================================================================
+# File Environment & Sensitif
+#
+# File-file ini sangat spesifik untuk mesin lokal Anda dan JANGAN PERNAH
+# di-commit. Buat file .env secara manual di server Anda.
+# ===================================================================
+.env
+.env.*
+!.env.example
+auth.json
+/storage/*.key
+/storage/pail
+
+# ===================================================================
+# File Cache & Buatan Laravel
+#
+# File-file ini dibuat secara otomatis oleh Laravel.
+# Symbolic link 'public/storage' harus dibuat di server jika dibutuhkan.
+# ===================================================================
+/public/hot
+/public/storage
+.phpunit.result.cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# ===================================================================
+# File Log & Sistem Operasi
+# ===================================================================
 *.log
 .DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
+Thumbs.db
+
+# ===================================================================
+# Direktori Editor & IDE
+#
+# Ini adalah pengaturan spesifik untuk editor kode Anda.
+# ===================================================================
 /.fleet
 /.idea
 /.nova
 /.phpunit.cache
 /.vscode
 /.zed
-/auth.json
+.phpactor.json
 
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/storage/pail
-
+# ===================================================================
+# File Lingkungan Development Lokal
+# ===================================================================
 Homestead.json
 Homestead.yaml
-Thumbs.db

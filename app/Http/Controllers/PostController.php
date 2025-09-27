@@ -11,6 +11,13 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function welcome()
+    {
+        // Mendapatkan semua data post, diurutkan dari yang terbaru, dan paginasi 5 item per halaman
+        $posts = Post::latest()->paginate(5);
+        return view('welcome', compact('posts'));
+    }
+
     public function index()
     {
         // Mendapatkan semua data post, diurutkan dari yang terbaru, dan paginasi 5 item per halaman

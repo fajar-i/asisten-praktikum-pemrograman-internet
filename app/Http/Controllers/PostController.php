@@ -41,7 +41,7 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageHashName = $image->hashName();
-            $image->storeAs('posts', $imageHashName, 'public');
+            $image->storeAs('posts', $imageHashName, 'public_uploads');
         }
 
         // Buat post baru
@@ -70,11 +70,11 @@ class PostController extends Controller
             $image = $request->file('image');
             $imageName = $image->hashName();
 
-            $image->storeAs('posts', $imageName, 'public');
+            $image->storeAs('posts', $imageName, 'public_uploads');
 
             // Hapus gambar lama
             if ($post->image) {
-                Storage::disk('public')->delete('posts/' . $post->image);
+                Storage::disk('public_uploads')->delete('posts/' . $post->image);
             }
 
             // Update post dengan gambar baru
@@ -100,8 +100,8 @@ class PostController extends Controller
     {
         // Hapus file gambar dari storage
         if ($post->image) {
-            // Hapus file gambar dari disk 'public'
-            Storage::disk('public')->delete('posts/' . $post->image);
+            // Hapus file gambar dari disk 'public_uploads'
+            Storage::disk('public_uploads')->delete('posts/' . $post->image);
         }
 
         // Hapus data post dari database

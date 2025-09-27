@@ -46,6 +46,13 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        
+        'public_uploads' => [
+            'driver' => 'local',
+            'root'   => public_path('storage'), // <-- Langsung menunjuk ke public/storage
+            'url'    => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

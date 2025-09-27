@@ -103,8 +103,8 @@
                                 <span class="task-title">{{ $post->title }}</span>
                             </div>
                             @if ($post->image)
-                                <img src="{{ asset('/storage/posts/' . $post->image) }}" class="task-image"
-                                    alt="Post Image">
+                                <img src="{{ Storage::disk('public_uploads')->url('posts/' . $post->image) }}"
+                                    class="task-image" alt="Post Image">
                             @endif
                             <div class="task-actions-right">
                                 <i class="bi bi-clipboard me-3" style="cursor: pointer;" title="Salin Teks"

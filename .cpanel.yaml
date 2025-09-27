@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/fwrpaxrd/public_html/keren
+    - /bin/cp -R * $DEPLOYPATH
